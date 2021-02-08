@@ -1,13 +1,13 @@
-package com.gqb.eurekaserver;
+package com.gqb.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
-//@EnableEurekaServer 当前服务器为Eureka服务器端
+
 @EnableEurekaServer
 @SpringBootApplication
-public class EurekaServerApplilcation {
+public class ClusterEurekaApplication1 {
     public static void main(String[] args) {
-        SpringApplication.run(EurekaServerApplilcation.class,args);
+        SpringApplication.run(ClusterEurekaApplication1.class,args);
     }
 }

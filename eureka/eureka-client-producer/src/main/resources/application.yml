@@ -1,0 +1,10 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: eureka-client-provider
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://localhost:8000/eureka/  #单机版
+      defaultZone: http://localhost:8001/eureka/,http://localhost:8002/eureka/ #集群版
