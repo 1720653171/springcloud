@@ -4,8 +4,14 @@ server:
 spring:
   application:
     name: eureka-server
-
+  security:
+    user:
+      name: root
+      password: 123456
 eureka:
+  server:
+    enable-self-preservation: false #true开启自我保护模式，默认值。false关闭自我保护模式
+    eviction-interval-timer-in-ms: 60000 #清理间隔 默认是60*10000（单位毫秒）
   instance:
     hostname: cluster02 # 主机名称，不配置的时候根据操作系统主机名获取
     prefer-ip-address: true #是否使用ip地址进行服务器注册
@@ -14,4 +20,5 @@ eureka:
     #register-with-eureka: false #是否将自己注册到注册中心，默认为true，单机情况下需要设置为false
     #fetch-registry: false #是否从注册中心获取服务注册信息，默认为true,单机情况下需要设置为false
     service-url:
-      defaultZone: http://localhost:8001/eureka/
+      #defaultZone: http://localhost:8001/eureka/
+      defaultZone: http://root:123456@localhost:8002/eureka/ #指向另外一台服务器,添加安全认证

@@ -1,0 +1,15 @@
+server:
+  port: 7002
+spring:
+  application:
+    name: eureka-client-comsumer
+eureka:
+
+  instance:
+    #hostname: cluster01 # 主机名称，不配置的时候根据操作系统主机名获取
+    prefer-ip-address: true #是否使用ip地址进行服务器注册
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} #ip+port
+  client:
+    service-url:
+      #defaultZone: http://localhost:8000/eureka/  #单机版
+      defaultZone: http://root:123456@localhost:8001/eureka/,http://root:123456@localhost:8002/eureka/ #集群版

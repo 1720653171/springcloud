@@ -17,14 +17,10 @@
         <module>eureka-client-consumer</module>
         <module>eureka-server-cluster1</module>
         <module>eureka-server-cluster2</module>
-        <module>eureka-server-cluster3</module>
     </modules>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-        </dependency>
+
     </dependencies>
 
 </project>

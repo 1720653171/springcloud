@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 public class EurekaClientConsumerApplication {
 
     @Bean
-    @LoadBalanced
+    //@LoadBalanced//负载均衡使用
     RestTemplate restTemplate(){
         return new RestTemplate();
     }

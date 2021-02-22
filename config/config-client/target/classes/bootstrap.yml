@@ -3,9 +3,12 @@ spring:
     name: config-client
   cloud:
     config:
-      label: master
+      label: master #分支名称
       uri: http://127.0.0.1:8080
-      name: ${spring.application.name}
+      name: ${spring.application.name} #会默认加载所有以spring.application.name命名的配置文件，包括config-client1.yml；config-client1-dev.yml哪怕不在指定的文件路径中，但内容会以指定路径中的文件为主
+      profile: dev #环境名称
+      username: root
+      password: 123456
 
 eureka:
   client:

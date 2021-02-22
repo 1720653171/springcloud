@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: config-server
+  security:
+    user:
+      name: root
+      password: 123456
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/fluosetine/springcloudconfig.git
+          username: 15225383955
+          password: guoquanbao159
+          clone-on-start: true  #开启git文件复制，将git文件放到本地，当网络波动时，可以及时响应
+          search-paths: config/{application}  #将读取对应git地址中config目录下的文件，application名称为对应客户端所使用的应用名称
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/

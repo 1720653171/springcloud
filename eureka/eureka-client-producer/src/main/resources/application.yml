@@ -1,10 +1,24 @@
 server:
-  port: 7000
+  port: 7001
 spring:
   application:
-    name: eureka-client-provider
+    name: eureka-client-producer
 eureka:
+  instance:
+    #hostname: cluster01 # 主机名称，不配置的时候根据操作系统主机名获取
+    prefer-ip-address: true #是否使用ip地址进行服务器注册
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} #ip+port
   client:
     service-url:
       #defaultZone: http://localhost:8000/eureka/  #单机版
-      defaultZone: http://localhost:8001/eureka/,http://localhost:8002/eureka/ #集群版
+      defaultZone: http://root:123456@localhost:8001/eureka/,http://root:123456@localhost:8002/eureka/ #集群版
+
+#度量指标监控与健康检查依赖
+management:
+  endpoints:
+    web:
+      exposure:
+        include: shutdown  #开始shutdown端点访问，默认不会开启关闭端口,"*" 则会开启所有的端口访问
+  endpoint:
+    shutdown:
+      enabled: true #开启优雅停服

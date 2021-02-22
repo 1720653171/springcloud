@@ -1,5 +1,6 @@
 package com.gqb.eurekaclient.controller;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.serviceregistry.Registration;
@@ -8,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class HelloController {
@@ -19,13 +23,14 @@ public class HelloController {
     @Resource
     private DiscoveryClient client;
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public String index() {
-        List<ServiceInstance> instances = client.getInstances(registration.getServiceId());
-        for (ServiceInstance instance : instances) {
-            System.out.println(String.format("/hello host=%s serviceId=%s", instance.getHost(),
-                    instance.getServiceId()));
-        }
-        return "Hello World!";
+
+    @RequestMapping("/getOrderById")
+    public Object getOrderById(String id){
+        Map<String,String> result = new HashMap<>();
+        result.put("id",id);
+        result.put("name","学习资料");
+        result.put("price","30");
+        result.put("number","1");
+        return result;
     }
 }
