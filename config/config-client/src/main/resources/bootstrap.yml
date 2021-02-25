@@ -13,3 +13,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8000/eureka/
+
+#度量指标监控与健康检查依赖
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #开启所有端点访问（不包括shutdown），默认不会开启关闭端口

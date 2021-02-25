@@ -9,14 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>config</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>config-server</module>
-        <module>config-client</module>
-        <module>config-security-server</module>
-        <module>config-security-client</module>
-        <module>springcloudbus-config-server</module>
-        <module>springcloudbus-config-client</module>
-    </modules>
+    <artifactId>zipkin</artifactId>
+
+
 </project>

@@ -1,0 +1,34 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/fluosetine/springcloudconfig.git
+          username: 15225383955
+          password: guoquanbao159
+          clone-on-start: true  #开启git文件复制，将git文件放到本地，当网络波动时，可以及时响应
+          search-paths: config/{application}  #将读取对应git地址中config目录下的文件，application名称为对应客户端所使用的应用名称
+  #消息队列
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+
+#度量指标监控与健康检查依赖
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh  #需要开启的端点
+        #exclude:             #不需要开启的端点

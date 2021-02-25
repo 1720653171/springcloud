@@ -11,6 +11,8 @@
     <modules>
         <module>eureka</module>
         <module>config</module>
+        <module>sleuth</module>
+        <module>zipkin</module>
     </modules>
 
     <parent>
