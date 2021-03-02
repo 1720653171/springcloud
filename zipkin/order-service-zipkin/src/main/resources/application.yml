@@ -1,9 +1,15 @@
 server:
-  port: 7070
+  port: 9090
 spring:
   application:
-    name: product-service
-
+    name: order-service
+  zipin:
+    base-url: http://loacalhost:9411/
+    sender:
+      type: web     #数据传输方式，web表示以Http提交的形式向服务器端发送数据
+  sleuth:
+    sampler:
+      probability: 1.0 #收集数据百分比。默认是0.1
 eureka:
   instance:
     #hostname: cluster01 # 主机名称，不配置的时候根据操作系统主机名获取
